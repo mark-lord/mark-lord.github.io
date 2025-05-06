@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priontific</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth; /* For smooth scrolling on anchor links */
+        }
+        body {
+            background-color: #F8FAFC; /* slate-50: A very light, clean base */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.6; /* Improved readability */
+            color: #1E293B; /* slate-800: Default text color */
+        }
+        .hero-bg-image {
+            /* TODO: Replace with Priontific hero image. Example: an abstract image representing neural networks with a green/eco-friendly tinge */
+            background-image: url('https://picsum.photos/seed/priontificheroV3/1200/800'); /* Keep placeholder but imagine it's awesome */
+            background-size: cover;
+            background-position: center;
+        }
+        .partner-bg-image {
+            /* TODO: Replace with Priontific image. Example: dynamic data flows, abstract AI processing, or growth/eco symbol */
+            /* The gradient overlay is now handled by an inner div for more control */
+            background-image: url('https://picsum.photos/seed/priontificpartnerV3/600/400'); /* Keep placeholder */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* For overlay */
+        }
+
+        /* Carousel styling - remains largely the same, visual tweaks via Tailwind */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* vertical centering of content within slide */
+        }
+
+        /* Custom Scrollbar - for a more polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9; /* slate-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94A3B8; /* slate-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748B; /* slate-500 */
+        }
+
+        /* General button styling for consistency */
+        button, .button-like {
+            transition: all 0.3s ease-in-out;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Tailwind shadow-xl equivalent */
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="flex flex-wrap justify-between items-center mb-8 md:mb-12 gap-4">
+            <div class="flex-shrink-0">
+                <div class="text-sm text-slate-500">London / UK</div>
+                <div class="text-3xl font-bold text-slate-900">Priontific</div>
+            </div>
+            <div class="flex items-center bg-white/80 backdrop-blur-md shadow-lg rounded-full px-6 py-3 space-x-4 md:space-x-6 order-last md:order-none w-full md:w-auto justify-center">
+                <nav>
+                    <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm font-medium">
+                        <li><a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors duration-300">Services</a></li>
+                        <li><a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors duration-300">Case Studies</a></li>
+                        <li><a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors duration-300">About</a></li>
+                        <li><a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors duration-300">Insights</a></li>
+                        <li><a href="#contact" class="text-slate-700 hover:text-emerald-600 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="hidden sm:flex space-x-3">
+                    <a href="https://www.instagram.com/mark.the.lord/" target="_blank" class="text-slate-600 hover:text-emerald-500 transition-transform duration-300 hover:scale-110"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/mark-ah-lord/" target="_blank" class="text-slate-600 hover:text-emerald-500 transition-transform duration-300 hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/mark-lord" target="_blank" class="text-slate-600 hover:text-emerald-500 transition-transform duration-300 hover:scale-110"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="flex-shrink-0">
+                <button class="bg-white p-2.5 rounded-full shadow-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-colors duration-300">
+                    <i class="fas fa-search text-slate-600"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Column: Hero Section -->
+            <div class="md:col-span-2 relative hero-bg-image rounded-3xl min-h-[450px] sm:min-h-[550px] flex flex-col justify-end p-6 sm:p-10 text-white shadow-2xl">
+                <div class="absolute inset-0 bg-black/50 rounded-3xl z-0"></div>
+                <div class="relative z-10">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-md">
+                        Scale your business with AI - without destroying the climate.
+                    </h1>
+                    <a href="#contact" class="inline-block">
+                        <button class="group w-12 h-12 sm:w-14 sm:h-14 border-2 border-white rounded-full flex items-center justify-center text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <i class="fas fa-arrow-down transition-transform duration-300 group-hover:translate-y-1"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Info Blocks -->
+            <div class="space-y-8 flex flex-col">
+
+                <!-- Stats Block with Carousel -->
+                <div id="stats-carousel-block" class="bg-white p-6 rounded-3xl text-center min-h-[180px] sm:min-h-[200px] flex flex-col justify-between shadow-xl card-hover-effect">
+                    <div class="carousel-container flex-grow h-[100px] sm:h-[120px]">
+                        <div id="stats-carousel-track" class="carousel-track">
+                            <div class="carousel-slide p-1"><div class="flex justify-around items-center w-full"><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">95%</p><p class="text-xs text-slate-600 mt-1">Energy Saved with<br>AI Deployed on ARM</p></div><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">£0.06</p><p class="text-xs text-slate-600 mt-1">Typical Daily<br>AI Running Cost</p></div></div></div>
+                            <div class="carousel-slide p-1"><div class="flex justify-around items-center w-full"><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">5+</p><p class="text-xs text-slate-600 mt-1">Clients Supported</p></div><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">£100k+</p><p class="text-xs text-slate-600 mt-1">Raised for<br>Client Projects</p></div></div></div>
+                            <div class="carousel-slide p-1"><div class="flex justify-around items-center w-full"><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">100+</p><p class="text-xs text-slate-600 mt-1">GitHub Stars<br>Across Projects</p></div><div><p class="text-4xl sm:text-5xl font-bold text-slate-800">2+ yrs</p><p class="text-xs text-slate-600 mt-1">Local & Private<br>AI Expertise</p></div></div></div>
+                        </div>
+                    </div>
+                    <div id="stats-pagination" class="flex justify-center space-x-1.5 sm:space-x-2 mt-3">
+                        {/* Pagination dots will be styled by JS based on new color scheme: active: slate-700, inactive: slate-300 */}
+                    </div>
+                </div>
+
+                <!-- Partner with Priontific Block (Static) -->
+                <div class="bg-slate-900 text-white p-6 rounded-3xl partner-bg-image min-h-[180px] sm:min-h-[200px] flex flex-col justify-between shadow-xl card-hover-effect">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent rounded-3xl z-0"></div>
+                    <div class="relative z-10 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Scale Your Startup Smarter</h2>
+                            <p class="text-xs sm:text-sm text-slate-300 opacity-40">Lessons from Web3 successes shape our unique start-up advice. Click here to learn more.</p>
+                        </div>
+                        <a href="#contact" class="self-end">
+                            <button class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition-colors duration-300 mt-2 group">
+                                <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Insights Snippets Block with Carousel -->
+                <div id="news-carousel-block" class="bg-emerald-500 text-white p-6 rounded-3xl flex-grow flex flex-col justify-between min-h-[220px] sm:min-h-[240px] shadow-xl card-hover-effect">
+                     <div class="carousel-container flex-grow h-[120px] sm:h-[150px]">
+                        <div id="news-carousel-track" class="carousel-track">
+                            <div class="carousel-slide p-1">
+                                <div class="mb-3">
+                                    <h3 class="text-md sm:text-lg font-semibold mb-1">ARM AI: Max Efficiency</h3>
+                                    <p class="text-xs sm:text-sm opacity-90">Cut energy costs by 95% with local SOTA models like DeepSeek R1 and Mistral.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-md sm:text-lg font-semibold mb-1">AI for Startup Growth</h3>
+                                    <p class="text-xs sm:text-sm opacity-90">AI for copy, automation & insights. Amplify small teams with our strategies.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide p-1">
+                                <div class="mb-3">
+                                    <h3 class="text-md sm:text-lg font-semibold mb-1">Beat Costly AI Models</h3>
+                                    <p class="text-xs sm:text-sm opacity-90">Avoid high fees. Priontific offers SOTA AI with minimal running costs. Gain independence.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-md sm:text-lg font-semibold mb-1">Startup Automation</h3>
+                                    <p class="text-xs sm:text-sm opacity-90">Boost productivity. Smart AI automation frees up your team's valuable manpower.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide p-1">
+                                <div class="mb-3">
+                                    <h3 class="text-md sm:text-lg font-semibold mb-1">Private AI: MLX & DeepSeek</h3>
+                                    <p class="text-xs sm:text-sm opacity-90">Run SOTA AI on your hardware via Apple MLX for total privacy - both setup & fine-tuning. We can help you to use custom AI via SFT & GRPO for all your privacy-based needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <div id="news-pagination" class="flex space-x-1.5 sm:space-x-2">
+                             {/* Pagination dashes will be styled by JS: active: white/100, inactive: white/50 */}
+                        </div>
+                        <button id="news-next-btn" class="group w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-full flex items-center justify-center hover:bg-white/30 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors duration-300">
+                            <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div> <!-- End of main content container -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-slate-100">
+        <div class="container mx-auto px-6 md:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                Get in Touch
+            </h2>
+            <p class="text-slate-700 text-lg mb-10 max-w-2xl mx-auto">
+                Our website is currently under development, but we're eager to hear from you!
+                Whether you have questions, ideas for collaboration, or want to learn how Priontific can empower your business with sustainable AI, please don't hesitate to reach out.
+            </p>
+            <div class="space-y-4 md:space-y-0 md:flex md:flex-wrap md:justify-center md:items-center md:gap-6">
+                <a href="mailto:priontific@gmail.com" class="button-like inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-100 shadow-md hover:shadow-lg">
+                    <i class="fas fa-envelope mr-2.5"></i> Email Us: priontific@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/mark-ah-lord/" target="_blank" class="button-like inline-flex items-center justify-center px-8 py-3 border border-slate-400 text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-100 shadow-md hover:shadow-lg">
+                    <i class="fab fa-linkedin-in mr-2.5"></i> Connect on LinkedIn
+                </a>
+            </div>
+            <p class="mt-12 text-sm text-slate-500">
+                We're excited about the future of AI and look forward to connecting with you.
+            </p>
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+
+<script>
+    function setupCarousel(carouselBlockId, trackId, paginationId, type = 'dots', nextBtnId = null) {
+        const track = document.getElementById(trackId);
+        const paginationContainer = document.getElementById(paginationId);
+        const nextButton = nextBtnId ? document.getElementById(nextBtnId) : null;
+
+        if (!track) return; // if track doesn't exist, carousel cannot be built
+        
+        const slides = Array.from(track.children);
+
+        // If pagination container or next button specific to this carousel don't exist, log error but continue if track exists
+        if (!paginationContainer) {
+            console.warn(`Pagination container with ID '${paginationId}' not found for carousel '${carouselBlockId}'.`);
+        }
+        if (nextBtnId && !nextButton) {
+            console.warn(`Next button with ID '${nextBtnId}' not found for carousel '${carouselBlockId}'.`);
+        }
+
+
+        if (slides.length === 0) {
+            if(paginationContainer) paginationContainer.innerHTML = '';
+            if (nextButton) nextButton.style.display = 'none';
+            // If track exists but no slides, ensure it doesn't break layout
+            track.innerHTML = '<div class="carousel-slide p-1 flex justify-center items-center w-full"><p class="text-slate-500">No items to display.</p></div>';
+            track.style.transform = 'translateX(0%)';
+            track.style.width = '100%';
+            Array.from(track.children)[0].style.minWidth = '100%';
+            return;
+        } else {
+             if (nextButton) nextButton.style.display = 'flex'; // Or 'inline-flex' or 'block' depending on styling
+        }
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // Set track width and individual slide widths
+        track.style.width = `${totalSlides * 100}%`;
+        slides.forEach((slide) => {
+            slide.style.minWidth = `${100 / totalSlides}%`;
+        });
+
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * (100 / totalSlides)}%)`;
+            if(paginationContainer) updatePagination();
+        }
+
+
+        function updatePagination() {
+            if (!paginationContainer) return; // Guard against missing pagination
+            paginationContainer.innerHTML = '';
+            if (totalSlides === 0) return;
+
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('button');
+                indicator.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                indicator.classList.add('carousel-indicator', 'rounded-full', 'transition-all', 'duration-300', 'focus:outline-none');
+                if (type === 'dots') {
+                    indicator.classList.add('w-2', 'h-2', 'sm:w-2.5', 'sm:h-2.5');
+                    indicator.classList.toggle('bg-slate-700', i === currentIndex); 
+                    indicator.classList.toggle('bg-slate-300', i !== currentIndex); 
+                    indicator.classList.toggle('opacity-100', i === currentIndex);
+                    indicator.classList.toggle('opacity-50', i !== currentIndex);
+                    indicator.classList.add('hover:opacity-75');
+                } else if (type === 'dashes') {
+                    indicator.classList.add('w-4', 'h-1', 'sm:w-5', 'sm:h-1.5');
+                    indicator.classList.toggle('bg-white', true); 
+                    indicator.classList.toggle('opacity-100', i === currentIndex);
+                    indicator.classList.toggle('opacity-40', i !== currentIndex); 
+                    indicator.classList.add('hover:opacity-75');
+                }
+                indicator.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                paginationContainer.appendChild(indicator);
+            }
+        }
+
+        if (nextButton) {
+            if (totalSlides <= 1) {
+                nextButton.style.display = 'none';
+            } else {
+                nextButton.style.display = 'flex'; // Or 'inline-flex', 'block'
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel();
+                });
+            }
+        }
+        updateCarousel(); // Initial call
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setupCarousel('stats-carousel-block', 'stats-carousel-track', 'stats-pagination', 'dots');
+        setupCarousel('news-carousel-block', 'news-carousel-track', 'news-pagination', 'dashes', 'news-next-btn');
+    });
+</script>
+
+</body>
+</html>
